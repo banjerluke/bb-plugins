@@ -136,7 +136,13 @@ never hidden.
 
 ### Snoozing
 
-The hover button snoozes until **09:00 tomorrow**.
+The Snooze button snoozes until **09:00 tomorrow**.
+
+Snooze/Settle and Wake/Un-settle actions remain visible when the primary input
+cannot hover (`hover: none`), matching the original BB Sidebar touch behavior.
+On hover-capable devices they appear on hover. Parked rows keep the wake countdown
+or age beside Restore; running threads and bulk selection retain their existing
+restrictions. This checks browser input capabilities, not the operating system.
 
 ### Inline agents
 

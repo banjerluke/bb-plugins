@@ -322,15 +322,17 @@ export function ThreadCard({
                 data-dockside-root-time=""
                 className={cn(
                   "flex h-4 items-center justify-end",
-                  canPark && !selectionMode && "group-hover/root:hidden",
+                  canPark && !selectionMode &&
+                    "group-hover/root:hidden [@media(hover:none)]:hidden",
                 )}
               >
                 {preferences.showRelativeTime ? (
                   <ThreadStatusLabel thread={thread} now={now} />
                 ) : null}
               </span>
+              {/* Without hover, actions must be visible before the first tap. */}
               {canPark && !selectionMode ? (
-                <span className="hidden h-4 items-center gap-0.5 group-hover/root:flex">
+                <span className="hidden h-4 items-center gap-0.5 group-hover/root:flex [@media(hover:none)]:flex">
                   <ParkButton
                     label="Snooze until tomorrow"
                     icon="Clock"
