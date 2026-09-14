@@ -22,7 +22,7 @@ describe("compact root card contract", () => {
     assert.match(rootSource, /data-dockside-root-metadata/);
     assert.match(
       rootSource,
-      /data-dockside-root-metadata=""[\s\S]*className="flex h-4 max-w-full items-center justify-end gap-1 whitespace-nowrap"/,
+      /data-dockside-root-metadata=""[\s\S]*className="flex h-4 max-w-full items-center justify-end gap-1 whitespace-nowrap(?: [^"]*)?"/,
     );
     assert.match(rootSource, /grid-cols-\[auto_minmax\(0,1fr\)_auto\]/);
     assert.match(rootSource, /grid-rows-\[1rem_1rem\]/);

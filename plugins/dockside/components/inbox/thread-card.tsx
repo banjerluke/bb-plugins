@@ -315,6 +315,8 @@ export function ThreadCard({
             <div
               className={cn(
                 "relative z-10 col-start-3 row-span-2 flex shrink-0 flex-col items-end gap-0.5",
+                canPark && !selectionMode &&
+                  "[@media(hover:none)]:grid [@media(hover:none)]:grid-cols-[1fr_auto] [@media(hover:none)]:gap-x-1",
                 selectionMode && "pointer-events-none",
               )}
             >
@@ -323,14 +325,14 @@ export function ThreadCard({
                 className={cn(
                   "flex h-4 items-center justify-end",
                   canPark && !selectionMode &&
-                    "group-hover/root:hidden [@media(hover:none)]:hidden",
+                    "[@media(hover:hover)]:group-hover/root:hidden",
                 )}
               >
                 {preferences.showRelativeTime ? (
                   <ThreadStatusLabel thread={thread} now={now} />
                 ) : null}
               </span>
-              {/* Without hover, actions must be visible before the first tap. */}
+              {/* Without hover, keep age and actions side by side, with metadata below. */}
               {canPark && !selectionMode ? (
                 <span className="hidden h-4 items-center gap-0.5 group-hover/root:flex [@media(hover:none)]:flex">
                   <ParkButton
@@ -352,7 +354,7 @@ export function ThreadCard({
               ) : null}
               <div
                 data-dockside-root-metadata=""
-                className="flex h-4 max-w-full items-center justify-end gap-1 whitespace-nowrap"
+                className="flex h-4 max-w-full items-center justify-end gap-1 whitespace-nowrap [@media(hover:none)]:col-span-2"
               >
                 {preferences.showPullRequestMetadata && pullRequest ? (
                   <PullRequestMetadata
